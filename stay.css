@@ -1,0 +1,62 @@
+/* Common Styles for Stay and Travel Sections */
+#stay {
+    padding: 60px 0;
+}
+
+/* Specific to Stay and Travel Section Titles */
+#stay h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Cards Group Styling */
+#stay .cards-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center; /* Center align cards */
+}
+
+/* Card Styling */
+#stay .card {
+    background-color: #fff;
+    border-radius: 20px;
+    max-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image Styling */
+#stay .card img {
+    width: 100%;
+    height: auto; /* Change to auto for aspect ratio */
+    max-height: 200px; /* Optional: Limit the maximum height */
+    object-fit: cover; /* Maintain aspect ratio and cover the area */
+}
+
+/* Info Section Styling */
+#stay .info {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Title in Info Section */
+#stay .info h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Paragraph in Info Section */
+#stay .info p {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Card Hover Effect */
+#stay .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
