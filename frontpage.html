@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Travel Trekkers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s; 
+    padding: 10px 0;
+    height: 70px; 
+}
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    height: 100%;
+    background-color: transparent; 
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.site-name {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.site-name span {
+    font-size: 24px; 
+    font-weight: 600;
+}
+
+.logo img {
+    
+    background-color: transparent;
+    object-fit: contain;
+    height:80px;
+}
+
+
+
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+.hero {
+    height: 100vh;
+    background-image: url('https://wallpapershome.com/images/wallpapers/maldives-1920x1080-5k-4k-wallpaper-8k-indian-ocean-best-beaches-in-5312.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    margin-top:0;
+}
+
+
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgb(116, 140, 138);
+    color: rgb(238, 238, 238);
+    border-radius: 4px;
+}
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+        nav ul li {
+            display: inline-block;
+        }
+
+       
+
+       
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.3);
+            text-align: center;
+            padding: 50px;
+            width:600px;
+        }
+
+        h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-align: center;}
+
+
+        .cta-button {
+            background-color: #d4e7ef;
+            color: black;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #a0cde1;
+        }
+
+        section {
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+
+        .regions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .regions span {
+            font-size: 1rem;
+            padding: 10px 20px;
+            color: #000000;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .regions span:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+       
+
+        #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #d4e7ef;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #scrollToTop:hover {
+            background-color: #a0cde1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer p a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+    
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="download.png" alt="Travel Trekkers Logo">
+                <div class="site-name">
+                    <span>Travel </span>
+                    <span>Trekkers</span>
+                </div>
+            </div>
+            
+            
+            <ul>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#stay">Stay</a></li>
+                <li><a href="#travel">Travel</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <section class="hero">
+        <div class="overlay">
+            <h1>Explore the World with a Smile</h1>
+            <a href="http://127.0.0.1:5501/register.html" class="cta-button">Register Now</a>
+
+        </div>
+    </section>
+
+    <section id="destinations">
+        <h1 class="text-center">Explore Top Destinations</h1>
+        <link rel="stylesheet" href="destinations.css">
+    
+        <!-- Search bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search destinations...">
+            <div id="noResultsMessage" style="display: none;">No matches found.</div>
+
+        </div>
+    
+        <!-- Region Selector -->
+        <div class="regions">
+            <span data-region="asia">Asia</span>
+            <span data-region="europe">Europe</span>
+            <span data-region="africa">Africa</span>
+            <span data-region="antarctica">Antarctica</span>
+            <span data-region="australia">Australia</span>
+            <span data-region="north-america">North America</span>
+            <span data-region="south-america">South America</span>
+        </div>
+    
+        <!-- Destination Cards -->
+        <div class="cards-group" id="asia">
+            <div class="cards">
+                <div class="card">
+                    <img src="kashmir.jpg.jfif" alt="India">
+                    <div class="info">
+                        <h2>India</h2>
+                        <p>Kashmir</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Hokkaido.jpg" alt="Japan">
+                    <div class="info">
+                        <h2>Japan</h2>
+                        <p>Hokkaido</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="bangkok.jpg" alt="Thailand">
+                    <div class="info">
+                        <h2>Thailand</h2>
+                        <p>Bangkok</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="nepal.jpg" alt="Nepal">
+                    <div class="info">
+                        <h2>Nepal</h2>
+                        <p>Kathmandu</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="marinabay.jpg" alt="Singapore">
+                    <div class="info">
+                        <h2>Singapore</h2>
+                        <p>Marina Bay</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="halongbay.jpg" alt="Vietnam">
+                    <div class="info">
+                        <h2>Vietnam</h2>
+                        <p>Halong Bay</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="gwoc.jpg" alt="China">
+                    <div class="info">
+                        <h2>China</h2>
+                        <p>Great Wall of China</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Bukchon Hanok Village.jpg" alt="South Korea">
+                    <div class="info">
+                        <h2>South Korea</h2>
+                        <p>Bukchon Hanok Village</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="cards-group" id="europe">
+            <div class="cards">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=France" alt="France">
+                    <div class="info">
+                        <h2>France</h2>
+                        <p>Paris</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Turkey" alt="Turkey">
+                    <div class="info">
+                        <h2>Turkey</h2>
+                        <p>Istanbul</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Italy" alt="Italy">
+                    <div class="info">
+                        <h2>Italy</h2>
+                        <p>Venice</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Spain" alt="Spain">
+                    <div class="info">
+                        <h2>Spain</h2>
+                        <p>Barcelona</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Scotland" alt="Scotland">
+                    <div class="info">
+                        <h2>Scotland</h2>
+                        <p>Edinburgh</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Greece" alt="Greece">
+                    <div class="info">
+                        <h2>Greece</h2>
+                        <p>Athens</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Switzerland" alt="Switzerland">
+                    <div class="info">
+                        <h2>Switzerland</h2>
+                        <p>Zurich</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=England" alt="England">
+                    <div class="info">
+                        <h2>England</h2>
+                        <p>Oxford</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="cards-group" id="antarctica">
+            <div class="cards">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Antarctica" alt="Antarctica">
+                    <div class="info">
+                        <h2>Antarctica</h2>
+                        <p>Wildlife</p>
+                    </div>
+                </div>
+            
+           
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Antarctica" alt="deceptio">
+                    <div class="info">
+                        <h2>Deception Island</h2>
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Antarctica" alt="">
+                    <div class="info">
+                        <h2>King Geoege Island</h2>
+                        
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Antarctica" alt="Antarctica">
+                    <div class="info">
+                        <h2>South Shetland Island</h2>
+                        
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Antarctica" alt="Antarctica">
+                    <div class="info">
+                        <h2>Elephant Island</h2>
+                       
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Antarctica" alt="Antarctica">
+                    <div class="info">
+                        <h2>Paradise Bay</h2>
+                        
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Antarctica" alt="Antarctica">
+                    <div class="info">
+                        <h2>Brown Bluff</h2>
+                        
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Antarctica" alt="Antarctica">
+                    <div class="info">
+                        <h2>Paulet Island</h2>
+                       
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        
+        <div class="cards-group" id="africa">
+            <div class="cards">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Egypt" alt="Egypt">
+                    <div class="info">
+                        <h2>Egypt</h2>
+                        <p>Cairo</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=South Africa" alt="South Africa">
+                    <div class="info">
+                        <h2>South Africa</h2>
+                        <p>Cape Town</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Kenya" alt="Kenya">
+                    <div class="info">
+                        <h2>Kenya</h2>
+                        <p>Nairobi</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Nigeria" alt="Nigeria">
+                    <div class="info">
+                        <h2>Nigeria</h2>
+                        <p>Lagos</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Tanzania" alt="Tanzania">
+                    <div class="info">
+                        <h2>Tanzania</h2>
+                        <p>Dodoma</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Morocco" alt="Morocco">
+                    <div class="info">
+                        <h2>Morocco</h2>
+                        <p>Rabat</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Ethiopia" alt="Ethiopia">
+                    <div class="info">
+                        <h2>Ethiopia</h2>
+                        <p>Addis Ababa</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Ghana" alt="Ghana">
+                    <div class="info">
+                        <h2>Ghana</h2>
+                        <p>Accra</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards-group" id="australia">
+            <div class="cards">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Australia" alt="Australia">
+                    <div class="info">
+                        <h2>Australia</h2>
+                        <p>Sydney</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=New Zealand" alt="New Zealand">
+                    <div class="info">
+                        <h2>New Zealand</h2>
+                        <p>Wellington</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Papua New Guinea" alt="Papua New Guinea">
+                    <div class="info">
+                        <h2>Papua New Guinea</h2>
+                        <p>Port Moresby</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Fiji" alt="Fiji">
+                    <div class="info">
+                        <h2>Fiji</h2>
+                        <p>Suva</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Solomon Islands" alt="Solomon Islands">
+                    <div class="info">
+                        <h2>Solomon Islands</h2>
+                        <p>Honiara</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Vanuatu" alt="Vanuatu">
+                    <div class="info">
+                        <h2>Vanuatu</h2>
+                        <p>Port Vila</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Kiribati" alt="Kiribati">
+                    <div class="info">
+                        <h2>Kiribati</h2>
+                        <p>Tarawa</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Tuvalu" alt="Tuvalu">
+                    <div class="info">
+                        <h2>Tuvalu</h2>
+                        <p>Funafuti</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards-group" id="north-america">
+            <div class="cards">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=USA" alt="USA">
+                    <div class="info">
+                        <h2>USA</h2>
+                        <p>New York</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Canada" alt="Canada">
+                    <div class="info">
+                        <h2>Canada</h2>
+                        <p>Toronto</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Mexico" alt="Mexico">
+                    <div class="info">
+                        <h2>Mexico</h2>
+                        <p>Mexico City</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Guatemala" alt="Guatemala">
+                    <div class="info">
+                        <h2>Guatemala</h2>
+                        <p>Guatemala City</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Cuba" alt="Cuba">
+                    <div class="info">
+                        <h2>Cuba</h2>
+                        <p>Havana</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Jamaica" alt="Jamaica">
+                    <div class="info">
+                        <h2>Jamaica</h2>
+                        <p>Kingston</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Honduras" alt="Honduras">
+                    <div class="info">
+                        <h2>Honduras</h2>
+                        <p>Tegucigalpa</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Panama" alt="Panama">
+                    <div class="info">
+                        <h2>Panama</h2>
+                        <p>Panama City</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards-group" id="south-america">
+            <div class="cards">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Brazil" alt="Brazil">
+                    <div class="info">
+                        <h2>Brazil</h2>
+                        <p>Rio de Janeiro</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Argentina" alt="Argentina">
+                    <div class="info">
+                        <h2>Argentina</h2>
+                        <p>Buenos Aires</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Colombia" alt="Colombia">
+                    <div class="info">
+                        <h2>Colombia</h2>
+                        <p>Bogotá</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Peru" alt="Peru">
+                    <div class="info">
+                        <h2>Peru</h2>
+                        <p>Lima</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Chile" alt="Chile">
+                    <div class="info">
+                        <h2>Chile</h2>
+                        <p>Santiago</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Venezuela" alt="Venezuela">
+                    <div class="info">
+                        <h2>Venezuela</h2>
+                        <p>Caracas</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Ecuador" alt="Ecuador">
+                    <div class="info">
+                        <h2>Ecuador</h2>
+                        <p>Quito</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Uruguay" alt="Uruguay">
+                    <div class="info">
+                        <h2>Uruguay</h2>
+                        <p>Montevideo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards-group" id="asia">
+            <div class="cards">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Japan" alt="Japan">
+                    <div class="info">
+                        <h2>Japan</h2>
+                        <p>Tokyo</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=China" alt="China">
+                    <div class="info">
+                        <h2>China</h2>
+                        <p>Beijing</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=India" alt="India">
+                    <div class="info">
+                        <h2>India</h2>
+                        <p>New Delhi</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Thailand" alt="Thailand">
+                    <div class="info">
+                        <h2>Thailand</h2>
+                        <p>Bangkok</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=South Korea" alt="South Korea">
+                    <div class="info">
+                        <h2>South Korea</h2>
+                        <p>Seoul</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Indonesia" alt="Indonesia">
+                    <div class="info">
+                        <h2>Indonesia</h2>
+                        <p>Jakarta</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Vietnam" alt="Vietnam">
+                    <div class="info">
+                        <h2>Vietnam</h2>
+                        <p>Hanoi</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Malaysia" alt="Malaysia">
+                    <div class="info">
+                        <h2>Malaysia</h2>
+                        <p>Kuala Lumpur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards-group" id="europe">
+            <div class="cards">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=France" alt="France">
+                    <div class="info">
+                        <h2>France</h2>
+                        <p>Paris</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Germany" alt="Germany">
+                    <div class="info">
+                        <h2>Germany</h2>
+                        <p>Berlin</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Italy" alt="Italy">
+                    <div class="info">
+                        <h2>Italy</h2>
+                        <p>Rome</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Spain" alt="Spain">
+                    <div class="info">
+                        <h2>Spain</h2>
+                        <p>Madrid</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=United Kingdom" alt="United Kingdom">
+                    <div class="info">
+                        <h2>United Kingdom</h2>
+                        <p>London</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Netherlands" alt="Netherlands">
+                    <div class="info">
+                        <h2>Netherlands</h2>
+                        <p>Amsterdam</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Greece" alt="Greece">
+                    <div class="info">
+                        <h2>Greece</h2>
+                        <p>Athens</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/300x200.png?text=Sweden" alt="Sweden">
+                    <div class="info">
+                        <h2>Sweden</h2>
+                        <p>Stockholm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
+<!-- Packages Section -->
+<section id="packages">
+    <h1 class="text-center">Our Packages</h1>
+    <script src="modal.js"></script>
+    <script src="modal.js"></script>
+
+    <!-- Search Bar -->
+    <input type="text" id="packagesInput" placeholder="Search packages..." style="padding: 10px; margin: 20px auto; display: block; width: 300px; border: 2px solid #007bff; border-radius: 5px;">
+    <link rel="stylesheet" href="packages.css">
+
+    <!-- Package Cards -->
+    <div class="cards-group" id="packages-group">
+        <div class="card" onclick="showDetails('Beach Getaway')">
+            <img src="beach getway.jpg" alt="Beach Getaway">
+            <div class="info">
+                <h2>Beach Getaway</h2>
+                <p>Relax and unwind on the pristine beaches.</p>
+            </div>
+        </div>
+        <div class="card" onclick="showDetails('Mountain Adventure')">
+            <img src="mountaingetaway.jpg" alt="Mountain Adventure">
+            <div class="info">
+                <h2>Mountain Adventure</h2>
+                <p>Experience the thrill of hiking and climbing.</p>
+            </div>
+        </div>
+        <div class="card" onclick="showDetails('City Escape')">
+            <img src="cityescape.jpg"City Escape">
+            <div class="info">
+                <h2>City Escape</h2>
+                <p>Discover the vibrant culture and nightlife.</p>
+            </div>
+        </div>
+    </div>
+
+   <!-- Modal for Package Details -->
+<div id="packageModal" class="modal">
+    <link rel="stylesheet" href="modal.css">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <div id="modal-packages" class="package-containers"></div>
+    </div>
+</div>
+
+</section>
+
+
+<!-- Stay Section -->
+<section id="stay">
+    <link rel="stylesheet" href="stay.css">
+    <h1 class="text-center">Where to Stay</h1>
+    <div class="cards-group">
+        <div class="card">
+            <img src="luxury.jpg" alt="Hotel">
+            <div class="info">
+                <h2>Luxury Hotel</h2>
+                <p>Experience the best in luxury and comfort.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="budget.jpg" alt="Hostel">
+            <div class="info">
+                <h2>Budget Hostel</h2>
+                <p>Affordable stay for budget travelers.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="rental.jpg" alt="Vacation Rental">
+            <div class="info">
+                <h2>Vacation Rental</h2>
+                <p>Feel at home in our cozy vacation rentals.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Travel Section -->
+    <section id="travel">
+        <h1 class="text-center">Travel Options</h1>
+        <link rel="stylesheet" href="travel.css">
+
+        <script src="popup.js"></script>
+        <div class="cards-group">
+            <div class="card" onclick="openPopup('air')">
+                <img src="flight.jpg" alt="By Air">
+                <div class="info">
+                    <h2>Travel by Air</h2>
+                    <p>Quick and comfortable flights to your destination.</p>
+                </div>
+            </div>
+            <div class="card" onclick="openPopup('train')">
+                <img src="ytrain.jpg"   alt="By Train">
+                <div class="info">
+                    <h2>Travel by Train</h2>
+                    <p>Enjoy scenic views while traveling by train.</p>
+                </div>
+            </div>
+            <div class="card" onclick="openPopup('bus')">
+                <img src="bus.jpg" alt="By Bus">
+                <div class="info">
+                    <h2>Travel by Bus</h2>
+                    <p>Economical option for intercity travel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Popup Modal -->
+<div id="bookingPopup" class="popup" style="display: none;">
+    <link rel="stylesheet" href="popup.css">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <h2 id="transportType">Booking for Travel</h2>
+
+        <form id="bookingForm">
+            <label for="numPassengers">Number of Passengers:</label>
+            <input type="number" id="numPassengers" name="numPassengers" min="1" placeholder="Enter number of passengers" required>
+
+            <div id="passengerDetails"></div>
+
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+
+<!-- About Us Section -->
+<section id="about">
+    <h1 class="text-center">About Us</h1>
+    <p style="text-align: center; max-width: 600px; margin: auto;">
+        Travel Trekkers is dedicated to helping you explore the world with unforgettable experiences.
+        Our team is passionate about travel and is here to assist you with every step of your journey.
+    </p>
+</section>
+        
+<script>// Function to filter destination cards based on search input
+    document.getElementById('searchInput').addEventListener('input', function () {
+        let searchTerm = this.value.toLowerCase();
+        let cards = document.querySelectorAll('.card');
+        let noResultsMessage = document.getElementById('noResultsMessage'); // Get the message element
+    
+        let hasVisibleCards = false; // Track if any cards are visible
+    
+        cards.forEach(function (card) {
+            let destinationName = card.querySelector('h2').textContent.toLowerCase();
+            let placeName = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
+    
+            if (destinationName.includes(searchTerm) || placeName.includes(searchTerm)) {
+                card.style.display = 'block'; // Show matching cards
+                hasVisibleCards = true; // At least one card is visible
+            } else {
+                card.style.display = 'none'; // Hide non-matching cards
+            }
+        });
+    
+        // Display or hide the no results message based on whether any cards are visible
+        if (hasVisibleCards) {
+            noResultsMessage.style.display = 'none'; // Hide the message
+        } else {
+            noResultsMessage.style.display = 'block'; // Show the message
+        }
+    });
+    
+    </script>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop">Top</button>
+
+    <footer>
+        <p>© 2024 Travel Trekkers. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    
+        // Show destinations based on selected region
+        const regions = document.querySelectorAll('.regions span');
+        const cardsGroups = document.querySelectorAll('.cards-group');
+    
+        regions.forEach(region => {
+            region.addEventListener('click', function() {
+                const selectedRegion = this.getAttribute('data-region');
+    
+                // Hide all groups
+                cardsGroups.forEach(group => group.classList.remove('active'));
+    
+                // Show selected group
+                const activeGroup = document.getElementById(selectedRegion);
+                if (activeGroup) {
+                    activeGroup.classList.add('active');
+                }
+    
+                // Clear search input when region is changed
+                searchInput.value = '';
+                filterCards('');
+            });
+        });
+    
+        // Scroll to Top Button
+        const scrollToTopButton = document.getElementById('scrollToTop');
+    
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopButton.style.display = "block";
+            } else {
+                scrollToTopButton.style.display = "none";
+            }
+        };
+    
+        scrollToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function() {
+            const filter = searchInput.value.toLowerCase();
+            filterCards(filter);
+        });
+    
+        // Filter cards function
+        function filterCards(filter) {
+            const activeGroup = document.querySelector('.cards-group.active');
+            if (activeGroup) {
+                const cards = activeGroup.querySelectorAll('.card');
+                cards.forEach(card => {
+                    const title = card.querySelector('h2').innerText.toLowerCase();
+                    const location = card.querySelector('p').innerText.toLowerCase();
+    
+                    // Check if the card title or location matches the search query
+                    if (title.includes(filter) || location.includes(filter)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            }
+        }
+    
+    </script>
+    
+</body>
+</html>
