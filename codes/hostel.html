@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay - Hostel Options</title>
+    <style>
+      
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #5797dc;
+            color: white;
+        }
+
+        .search-bar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        .cards-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        /* Hostel Card Styles */
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 300px;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info h2 {
+            font-size: 20px;
+            color: #007bff;
+            margin: 10px 0;
+        }
+
+        .info p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .info .details {
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .star-rating {
+            font-size: 18px;
+            color: #f5a623;
+        }
+
+        .info button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .info button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .modal-content h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .modal-content label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .modal-content button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .cards-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-bar {
+                width: 200px;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+
+        /* Back to Home Button */
+        .back-to-home {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Stay Options: Hostels</h1>
+    <p>Find and book affordable hostel stays for your travels!</p>
+</header>
+
+<input type="text" id="searchBar" class="search-bar" placeholder="Search hostels..." onkeyup="searchHostel()">
+
+<div class="cards-group" id="hostel-group">
+    <div class="card" data-name="Urban Escape Hostel" data-description="A modern and trendy hostel in the heart of the city, perfect for young travelers.">
+        <img src="zu zu.jpg" alt="Urban Escape Hostel">
+        <div class="info">
+            <h2>Zu-Zu Hostel</h2>
+            <p>A modern and trendy hostel in the heart of the city, perfect for young travelers.</p>
+            <p class="details">4.5 Stars | $50 per night</p>
+            <p>📍Himachal</p>
+            <div class="star-rating">★★★★☆</div>
+            <button onclick="bookNow('Urban Escape Hostel', 50)">Book Now</button>
+        </div>
+    </div>
+    <div class="card" data-name="City Backpackers" data-description="Modern hostel located in the heart of the city.">
+        <img src="city backpackers.jpg" alt="City Backpackers">
+        <div class="info">
+            <h2>City Backpackers</h2>
+            <p>Modern hostel located in the heart of the city.</p>
+            <p class="details">4 Stars | $40 per night</p>
+            <p>📍New York</p>
+            <div class="star-rating">★★★★☆</div>
+            <button onclick="bookNow('City Backpackers', 40)">Book Now</button>
+        </div>
+    </div>
+
+    <div class="card" data-name="Beachside Hostel" data-description="Relaxing hostel by the beach, perfect for surfers and nature lovers.">
+        <img src="beachside hostel.jpg" alt="Beachside Hostel">
+        <div class="info">
+            <h2>Beachside Hostel</h2>
+            <p>Relaxing hostel by the beach, perfect for surfers and nature lovers.</p>
+            <p class="details">5 Stars | $55 per night</p>
+            <p>📍Los Angeles</p>
+            <div class="star-rating">★★★★★</div>
+            <button onclick="bookNow('Beachside Hostel', 55)">Book Now</button>
+        </div>
+    </div>
+    
+    <div class="card" data-name="Mountain Retreat Hostel" data-description="Cozy hostel located in the mountains, ideal for hiking enthusiasts.">
+        <img src="mountain retreat hostel.jpg" alt="Mountain Retreat Hostel">
+        <div class="info">
+            <h2>Mountain Retreat Hostel</h2>
+            <p>Cozy hostel located in the mountains, ideal for hiking enthusiasts.</p>
+            <p class="details">4 Stars | $45 per night</p>
+            <p>📍Colorado</p>
+            <div class="star-rating">★★★★☆</div>
+            <button onclick="bookNow('Mountain Retreat Hostel', 45)">Book Now</button>
+        </div>
+    </div>
+    
+  
+    
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirm Your Booking</h3>
+            <p id="hostel-name"></p>
+            
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" required>
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" required>
+
+            <label for="people">Number of People:</label>
+            <select id="people" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <p id="price-details"></p>
+
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" required>
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <button onclick="submitBooking()">Submit</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+<script>
+    let selectedPrice;
+
+    function bookNow(hostelName, price) {
+        document.getElementById('checkin').value = '';
+        document.getElementById('checkout').value = '';
+        document.getElementById('people').value = '1';
+        document.getElementById('price-details').textContent = '';
+        document.getElementById('payment-method').value = 'credit-card';
+
+        selectedPrice = price;
+        document.getElementById('hostel-name').textContent = `Booking: ${hostelName} - $${price} per night`;
+        document.getElementById('paymentModal').style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById('paymentModal').style.display = "none";
+    }
+
+    function submitBooking() {
+        const checkinDate = document.getElementById('checkin').value;
+        const checkoutDate = document.getElementById('checkout').value;
+        const peopleCount = document.getElementById('people').value;
+        const paymentMethod = document.getElementById('payment-method').value;
+
+        if (checkinDate && checkoutDate && peopleCount && paymentMethod) {
+            alert(`Booking Confirmed! You have booked ${peopleCount} people at the hostel. Payment via ${paymentMethod}.`);
+            closeModal();
+        } else {
+            alert("Please fill out all fields.");
+        }
+    }
+
+    function searchHostel() {
+        const query = document.getElementById('searchBar').value.toLowerCase();
+        const hostels = document.querySelectorAll('.card');
+
+        hostels.forEach(hostel => {
+            const name = hostel.getAttribute('data-name').toLowerCase();
+            const description = hostel.getAttribute('data-description').toLowerCase();
+
+            if (name.includes(query) || description.includes(query)) {
+                hostel.style.display = '';
+            } else {
+                hostel.style.display = 'none';
+            }
+        });
+    }
+
+   
+    function goHome() {
+        window.location.href = 'frontpage.html';
+    }
+</script>
+
+
+<button class="back-to-home" onclick="goHome()">Back to Home</button>
+
+</body>
+</html>

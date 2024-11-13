@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Adventure Packages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #6eab8e;
+            color: white;
+        }
+
+        .cards-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 300px;
+            margin: 15px;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info h2 {
+            font-size: 20px;
+            color: #4CAF50;
+            margin: 10px 0;
+        }
+
+        .info p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .info .details {
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .info button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .info button:hover {
+            background-color: #388E3C;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .modal-content input {
+            width: 80%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .modal-content button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background-color: #388E3C;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mountain Adventure Packages</h1>
+        <p>Explore breathtaking mountain destinations around the world!</p>
+    </header>
+
+    <div class="cards-group" id="packages-group">
+        <div class="card">
+            <img src="himachal.jpg" alt="Himachal">
+            <div class="info">
+                <h2>Himachal</h2>
+                <p>Discover the scenic mountains and serene valleys of Himachal.</p>
+                <p class="details">6 Days, 5 Nights | Total Cost: $1,000</p>
+                <button onclick="bookNow('Himachal')">Book Now</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="ever.jpg" alt="Nepal">
+            <div class="info">
+                <h2>Nepal</h2>
+                <p>Experience the beauty and spirituality of Nepal's Himalayas.</p>
+                <p class="details">8 Days, 7 Nights | Total Cost: $1,500</p>
+                <button onclick="bookNow('Nepal')">Book Now</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="swit.jpg" alt="Switzerland">
+            <div class="info">
+                <h2>Switzerland</h2>
+                <p>Enjoy the stunning alpine landscapes and luxury in Switzerland.</p>
+                <p class="details">5 Days, 4 Nights | Total Cost: $2,200</p>
+                <button onclick="bookNow('Switzerland')">Book Now</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="jk.jpg" alt="Jammu & Kashmir">
+            <div class="info">
+                <h2>Jammu & Kashmir</h2>
+                <p>Immerse yourself in the breathtaking beauty of Kashmir’s mountains and lakes.</p>
+                <p class="details">6 Days, 5 Nights | Total Cost: $1,300</p>
+                <button onclick="bookNow('Jammu & Kashmir')">Book Now</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="uk.jpg" alt="Uttarakhand">
+            <div class="info">
+                <h2>Uttarakhand</h2>
+                <p>Explore the serene landscapes and spiritual sanctuaries of Uttarakhand.</p>
+                <p class="details">7 Days, 6 Nights | Total Cost: $1,200</p>
+                <button onclick="bookNow('Uttarakhand')">Book Now</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="ladakh.jpg" alt="Ladakh">
+            <div class="info">
+                <h2>Ladakh</h2>
+                <p>Experience the unique beauty of the Himalayan desert landscapes in Ladakh.</p>
+                <p class="details">6 Days, 5 Nights | Total Cost: $1,400</p>
+                <button onclick="bookNow('Ladakh')">Book Now</button>
+            </div>
+        </div>
+    <div class="card">
+        <img src="austria.jpg" alt="Austria">
+        <div class="info">
+            <h2>Austria</h2>
+            <p>Explore the majestic Alps and charming villages of Austria.</p>
+            <p class="details">7 Days, 6 Nights | Total Cost: $2,000</p>
+            <button onclick="bookNow('Austria')">Book Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="peru2.jpg" alt="Peru">
+        <div class="info">
+            <h2>Peru</h2>
+            <p>Embark on an adventure to the Andes and discover the mystical Machu Picchu.</p>
+            <p class="details">6 Days, 5 Nights | Total Cost: $1,800</p>
+            <button onclick="bookNow('Peru')">Book Now</button>
+        </div>
+    </div>
+    <div class="card">
+        <img src="bhutan.jpg" alt="Bhutan">
+        <div class="info">
+            <h2>Bhutan</h2>
+            <p>Immerse in the Himalayan kingdom of Bhutan, with stunning landscapes and monasteries.</p>
+            <p class="details">5 Days, 4 Nights | Total Cost: $1,600</p>
+            <button onclick="bookNow('Bhutan')">Book Now</button>
+        </div>
+    </div>
+</div>
+
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <h3>Payment Details</h3>
+            <input type="text" placeholder="Card Number">
+            <input type="text" placeholder="Name on Card">
+            <input type="text" placeholder="Expiration Date">
+            <input type="text" placeholder="CVV">
+            <button onclick="confirmBooking()">Confirm Payment</button>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h3>Booking Confirmed!</h3>
+            <p>Your booking was successful. We look forward to welcoming you!</p>
+            <button onclick="closeConfirmation()">Close</button>
+        </div>
+    </div>
+
+    <a href="frontpage.html" class="back-button">Back to Home</a>
+
+    <script>
+        function bookNow(packageName) {
+            document.getElementById("paymentModal").style.display = "flex";
+        }
+
+        function confirmBooking() {
+            document.getElementById("paymentModal").style.display = "none";
+            document.getElementById("confirmationModal").style.display = "flex";
+        }
+
+        function closeConfirmation() {
+            document.getElementById("confirmationModal").style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("paymentModal")) {
+                document.getElementById("paymentModal").style.display = "none";
+            } else if (event.target == document.getElementById("confirmationModal")) {
+                document.getElementById("confirmationModal").style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

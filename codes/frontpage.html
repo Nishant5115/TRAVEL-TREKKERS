@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Travel Trekkers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(to right, #f8cdda, #c1fcf1); 
+        }
+        header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+   
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s;
+    padding: 10px 0;
+    height: 70px;
+}
+
+
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    height: 100%;
+    background-color: transparent; 
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.site-name {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.site-name span {
+    font-size: 24px; 
+    font-weight: 600;
+}
+
+.logo img {
+    
+    background-color: transparent;
+    object-fit: contain;
+    height:80px;
+}
+
+
+
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+.hero {
+    height: 100vh;
+    background-image: url('https://wallpapershome.com/images/wallpapers/maldives-1920x1080-5k-4k-wallpaper-8k-indian-ocean-best-beaches-in-5312.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+    margin-top:0;
+}
+
+
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    padding:8px 20px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgb(116, 140, 138);
+    color: rgb(238, 238, 238);
+    border-radius: 4px;
+}
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap:20px;
+}
+
+        nav ul li {
+            display: inline-block;
+            
+        }
+
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.3);
+            text-align: center;
+            padding: 50px;
+            width:600px;
+        }
+
+        h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-align: center;}
+
+
+        .cta-button {
+            background-color: #d4e7ef;
+            color: black;
+            text-decoration: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #a0cde1;
+        }
+
+        section {
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+
+        .regions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .regions span {
+            font-size: 1rem;
+            padding: 10px 20px;
+            color: #000000;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .regions span:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+       
+
+        #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #d4e7ef;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #scrollToTop:hover {
+            background-color: #a0cde1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            background-color: #2e9898;
+            color: #fff;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer p a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+    
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+        .regions span.active {
+    background-color: #0056b3;
+    color: white;
+}
+
+
+    </style>
+</head>
+
+
+<body>
+    <header>
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="download.png" alt="Travel Trekkers Logo">
+                    <div class="site-name">
+                        <span>Travel </span>
+                        <span>Trekkers</span>
+                    </div>
+                </div>
+        
+                <ul>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#stay">Stay</a></li>
+                    <li><a href="#travel">Travel</a></li>
+                    <li><a href="#about">About Us</a></li>
+                </ul>
+        
+        
+                <div class="my-profile">
+                    <a href="http://127.0.0.1:5501/profile.html#" id="profile-link">
+                        <i class="fas fa-user profile-circle"></i> 
+                    </a>
+                </div>
+                
+            </nav>
+        </header>
+        
+        <style>
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 30px;
+                height: 100%;
+                background-color: transparent;
+            }
+        
+           
+            .my-profile {
+    
+    display: flex;
+    align-items: center;
+    margin-left: 10px; 
+}
+
+.my-profile a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+   
+}
+
+.profile-circle {
+
+    color: rgb(0, 0, 0);
+    font-size:30px;
+    
+    
+}
+
+        </style>
+        
+        
+    </header>
+    
+    <section class="hero">
+        <div class="overlay">
+            
+            <h1>Explore the World with a Smile</h1>
+            <a href="login.html" class="cta-button">Register Now</a>
+
+        </div>
+        
+    </section>
+
+    <section id="destinations">
+        <h1 class="text-center">Explore Top Destinations</h1>
+        <link rel="stylesheet" href="destinations.css">
+    
+        <!-- Search bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search destinations...">
+            <div id="noResultsMessage" style="display: none;">No matches found.</div>
+
+        </div>
+    
+        <!-- Region Selector -->
+        <div class="regions">
+            <span data-region="asia">Asia</span>
+            <span data-region="europe">Europe</span>
+            <span data-region="africa">Africa</span>
+            <span data-region="antarctica">Antarctica</span>
+            <span data-region="australia">Australia</span>
+            <span data-region="north-america">North America</span>
+            <span data-region="south-america">South America</span>
+        </div>
+    
+        <!-- Destination Cards -->
+        <div class="cards-group" id="asia">
+            <div class="cards">
+                <div class="card">
+                    <img src="kashmir.jpg" alt="India">
+                    <div class="info">
+                        <h2>India</h2>
+                        <p>Kashmir</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Hokkaido.jpg" alt="Japan">
+                    <div class="info">
+                        <h2>Japan</h2>
+                        <p>Hokkaido</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="bangkok.jpg" alt="Thailand">
+                    <div class="info">
+                        <h2>Thailand</h2>
+                        <p>Bangkok</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="nepal.jpg" alt="Nepal">
+                    <div class="info">
+                        <h2>Nepal</h2>
+                        <p>Kathmandu</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="marinabay.jpg" alt="Singapore">
+                    <div class="info">
+                        <h2>Singapore</h2>
+                        <p>Marina Bay</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="halongbay.jpg" alt="Vietnam">
+                    <div class="info">
+                        <h2>Vietnam</h2>
+                        <p>Halong Bay</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="gwoc.jpg" alt="China">
+                    <div class="info">
+                        <h2>China</h2>
+                        <p>Great Wall of China</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Bukchon Hanok Village.jpg" alt="South Korea">
+                    <div class="info">
+                        <h2>South Korea</h2>
+                        <p>Bukchon Hanok Village</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="cards-group" id="europe">
+            <div class="cards">
+                <div class="card">
+                    <img src="Norway.jpg" alt="Norway">
+                    <div class="info">
+                        <h2>Norway</h2>
+                        <p>Tromsø</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="italy.jpg" alt="Italy">
+                    <div class="info">
+                        <h2>Italy</h2>
+                        <p>Venice</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="france.jpg" alt="France">
+                    <div class="info">
+                        <h2>France</h2>
+                        <p>Paris</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="finland.jpg" alt="finland">
+                    <div class="info">
+                        <h2>Finland</h2>
+                        <p>Lapland</p>
+                    </div>
+                </div>
+               
+                <div class="card">
+                    <img src="spain.jpg" alt="Spain">
+                    <div class="info">
+                        <h2>Spain</h2>
+                        <p>Barcelona</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="switzerland.jpg" alt="Switzerland">
+                    <div class="info">
+                        <h2>Switzerland</h2>
+                        <p>Zurich</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="scotland.jpg" alt="Scotland">
+                    <div class="info">
+                        <h2>Scotland</h2>
+                        <p>Edinburgh</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="greece.jpg" alt="Greece">
+                    <div class="info">
+                        <h2>Greece</h2>
+                        <p>Athens</p>
+                    </div>
+                </div>
+               
+                
+            </div>
+        </div>
+    
+        <div class="cards-group" id="antarctica">
+            <div class="cards">
+                <div class="card">
+                    <img src="Antarctica.jpg" alt="Antarctica">
+                    <div class="info">
+                        <h2>Antarctica</h2>
+                        <p>Wildlife</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Elephant Island.jpg" alt="Antarctica">
+                    <div class="info">
+                        <h2>Elephant Island</h2>
+                       
+                    </div>
+                </div>
+            
+           
+                <div class="card">
+                    <img src="Deception Island.jpg" alt="deceptio">
+                    <div class="info">
+                        <h2>Deception Island</h2>
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="King Geoege Island.jpg" alt="">
+                    <div class="info">
+                        <h2>King Geoege Island</h2>
+                        
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="South Shetland Island.jpg" alt="Antarctica">
+                    <div class="info">
+                        <h2>South Shetland Island</h2>
+                        
+                    </div>
+                </div>
+            
+             
+                
+            
+             
+                <div class="card">
+                    <img src="Paradise Bay.jpg" alt="Antarctica">
+                    <div class="info">
+                        <h2>Paradise Bay</h2>
+                        
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="Brown Bluff.jpg" alt="Antarctica">
+                    <div class="info">
+                        <h2>Brown Bluff</h2>
+                        
+                    </div>
+                </div>
+            
+             
+                <div class="card">
+                    <img src="Paulet Island.jpg" alt="Antarctica">
+                    <div class="info">
+                        <h2>Paulet Island</h2>
+                       
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        
+        <div class="cards-group" id="africa">
+            <div class="cards">
+                <div class="card">
+                    <img src="egypt.jpg" alt="Egypt">
+                    <div class="info">
+                        <h2>Egypt</h2>
+                        <p>Cairo</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="sa.jpg" alt="South Africa">
+                    <div class="info">
+                        <h2>South Africa</h2>
+                        <p>Cape Town</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="kenya.jpg" alt="Kenya">
+                    <div class="info">
+                        <h2>Kenya</h2>
+                        <p>Nairobi</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="nigeria.jpg" alt="Nigeria">
+                    <div class="info">
+                        <h2>Nigeria</h2>
+                        <p>Lagos</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Tanzania.jpg" alt="Tanzania">
+                    <div class="info">
+                        <h2>Tanzania</h2>
+                        <p>Dodoma</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Morocco.jpg" alt="Morocco">
+                    <div class="info">
+                        <h2>Morocco</h2>
+                        <p>Rabat</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Ethiopia.jpg" alt="Ethiopia">
+                    <div class="info">
+                        <h2>Ethiopia</h2>
+                        <p>Addis Ababa</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Ghana.jpg" alt="Ghana">
+                    <div class="info">
+                        <h2>Ghana</h2>
+                        <p>Accra</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards-group" id="australia">
+            <div class="cards">
+                <div class="card">
+                    <img src="Australia.jpg" alt="Australia">
+                    <div class="info">
+                        <h2>Australia</h2>
+                        <p>Sydney</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="New Zealand.jpg" alt="New Zealand">
+                    <div class="info">
+                        <h2>New Zealand</h2>
+                        <p>Wellington</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Papua New Guinea.jpg" alt="Papua New Guinea">
+                    <div class="info">
+                        <h2>Papua New Guinea</h2>
+                        <p>Port Moresby</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Fiji.jpg" alt="Fiji">
+                    <div class="info">
+                        <h2>Fiji</h2>
+                        <p>Suva</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Solomon Islands.jpg" alt="Solomon Islands">
+                    <div class="info">
+                        <h2>Solomon Islands</h2>
+                        <p>Honiara</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Vanuatu.jpg" alt="Vanuatu">
+                    <div class="info">
+                        <h2>Vanuatu</h2>
+                        <p>Port Vila</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Kiribati.jpg" alt="Kiribati">
+                    <div class="info">
+                        <h2>Kiribati</h2>
+                        <p>Tarawa</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Tuvalu.jpg" alt="Tuvalu">
+                    <div class="info">
+                        <h2>Tuvalu</h2>
+                        <p>Funafuti</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards-group" id="north-america">
+            <div class="cards">
+                <div class="card">
+                    <img src="USA.jpg" alt="USA">
+                    <div class="info">
+                        <h2>USA</h2>
+                        <p>New York</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Canada.jpg" alt="Canada">
+                    <div class="info">
+                        <h2>Canada</h2>
+                        <p>Toronto</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Mexico.jpg" alt="Mexico">
+                    <div class="info">
+                        <h2>Mexico</h2>
+                        <p>Mexico City</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Guatemala.jpg" alt="Guatemala">
+                    <div class="info">
+                        <h2>Guatemala</h2>
+                        <p>Guatemala City</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Cuba.jpg" alt="Cuba">
+                    <div class="info">
+                        <h2>Cuba</h2>
+                        <p>Havana</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Jamaica.jpg" alt="Jamaica">
+                    <div class="info">
+                        <h2>Jamaica</h2>
+                        <p>Kingston</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Honduras.jpg" alt="Honduras">
+                    <div class="info">
+                        <h2>Honduras</h2>
+                        <p>Tegucigalpa</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Panama.jpg" alt="Panama">
+                    <div class="info">
+                        <h2>Panama</h2>
+                        <p>Panama City</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cards-group" id="south-america">
+            <div class="cards">
+                <div class="card">
+                    <img src="Brazil.jpg" alt="Brazil">
+                    <div class="info">
+                        <h2>Brazil</h2>
+                        <p>Rio de Janeiro</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Argentina.jpg" alt="Argentina">
+                    <div class="info">
+                        <h2>Argentina</h2>
+                        <p>Buenos Aires</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Colombia.jpg" alt="Colombia">
+                    <div class="info">
+                        <h2>Colombia</h2>
+                        <p>Bogotá</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Peru.jpg" alt="Peru">
+                    <div class="info">
+                        <h2>Peru</h2>
+                        <p>Lima</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Chile.jpg" alt="Chile">
+                    <div class="info">
+                        <h2>Chile</h2>
+                        <p>Santiago</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Venezuela.jpg" alt="Venezuela">
+                    <div class="info">
+                        <h2>Venezuela</h2>
+                        <p>Caracas</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Ecuador.jpg" alt="Ecuador">
+                    <div class="info">
+                        <h2>Ecuador</h2>
+                        <p>Quito</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Uruguay.jpg" alt="Uruguay">
+                    <div class="info">
+                        <h2>Uruguay</h2>
+                        <p>Montevideo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       
+    
+<!-- Packages Section -->
+<section id="packages">
+    <h1 class="text-center">Our Packages</h1>
+
+    <!-- Search Bar -->
+    <input type="text" id="packagesInput" placeholder="Search packages..." style="padding: 10px; margin: 20px auto; display: block; width: 300px; border: 2px solid #007bff; border-radius: 5px;">
+    <link rel="stylesheet" href="packages.css">
+
+    <!-- Package Cards -->
+    <div class="cards-group" id="packages-group">
+        <div class="card" onclick="openPackagePage('laks.html')">
+            <img src="beach getway.jpg" alt="Beach Getaway">
+            <div class="info">
+                <h2>Beach Getaway</h2>
+                <p>Relax and unwind on the pristine beaches.</p>
+            </div>
+        </div>
+        <div class="card" onclick="openPackagePage('mount.html')">
+            <img src="mountaingetaway.jpg" alt="Mountain Adventure">
+            <div class="info">
+                <h2>Mountain Adventure</h2>
+                <p>Experience the thrill.</p>
+            </div>
+        </div>
+        <div class="card" onclick="openPackagePage('city.html')">
+            <img src="cityescape.jpg" alt="City Escape">
+            <div class="info">
+                <h2>City Escape</h2>
+                <p>Discover the vibrant culture and nightlife.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function openPackagePage(pageUrl) {
+        
+        window.open(pageUrl, '_blank');
+    }
+</script>
+
+<style>#packages {
+    padding: 60px 0;
+}
+
+#packages h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#packages .cards-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center; /* Center align cards */
+}
+
+#packages .card {
+    background-color: #fff;
+    border-radius: 20px;
+    max-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#packages .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+#packages .info {
+    padding: 20px;
+    text-align: center;
+}
+
+#packages .info h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#packages .info p {
+    font-size: 1rem;
+    color: #777;
+}
+
+#packages .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+.search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }</style>
+</section>
+
+
+<!-- Stay Section -->
+<section id="stay">
+    <link rel="stylesheet" href="stay.css">
+    <h1 class="text-center">Where to Stay</h1>
+    <div class="cards-group">
+        <div class="card" onclick="openPackagePage('hotel.html')">
+            <img src="luxury.jpg" alt="Hotel">
+            <div class="info">
+                <h2>Hotel Stay</h2>
+                <p>Experience the best in luxury and comfort.</p>
+            </div>
+        </div>
+        
+        <div class="card" onclick="openPackagePage('hostel.html')">
+            <img src="hostel.jpg" alt="Hostel">
+            <div class="info">
+                <h2>Hostel Stay</h2>
+                <p>Affordable stay for budget travelers.</p>
+            </div>
+        </div>
+        
+        <div class="card" onclick="openPackagePage('vac.html')">
+            <img src="rental.jpg" alt="Vacation Rental">
+            <div class="info">
+                <h2>Vacation Rental</h2>
+                <p>Feel at home in our cozy vacation rentals.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function openPackagePage(url) {
+        window.location.href = url;
+    }
+</script>
+
+    <!-- Travel Section -->
+   
+<section id="travel">
+    <h1 class="text-center">Travel Options</h1>
+
+    <link rel="stylesheet" href="travel.css">
+    
+
+    <div class="cards-group">
+        <div class="card" onclick="window.location.href='air.html';">
+            <img src="flight.jpg" alt="By Air">
+            <div class="info">
+                <h2>Travel by Air</h2>
+                <p>Quick and comfortable flights to your destination.</p>
+            </div>
+        </div>
+        <div class="card" onclick="window.location.href='train.html';">
+            <img src="ytrain.jpg" alt="By Train">
+            <div class="info">
+                <h2>Travel by Train</h2>
+                <p>Enjoy scenic views while traveling by train.</p>
+            </div>
+        </div>
+        <div class="card" onclick="window.location.href='Bus.html';">
+            <img src="bus.jpg" alt="By Bus">
+            <div class="info">
+                <h2>Travel by Bus</h2>
+                <p>Economical option for intercity travel.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
+
+<!-- About Us Section -->
+<section id="about" class="about-section">
+    <div class="about-content">
+        <h1>About Us</h1>
+        <p>
+            At <strong>Travel Trekkers</strong>, we believe that travel is more than just a journey—it's a gateway to discovering new perspectives, cultures, and adventures. 
+            Our dedicated team of passionate travel enthusiasts is committed to curating unique, memorable experiences that enrich your travels, from planning to arrival.
+        </p>
+    </div>
+    <div class="contact-us">
+        <h2>Contact Us</h2>
+        <p>Stay connected with us through our social channels:</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            
+        </div>
+    </div>
+</section>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
+<style>
+    .about-section {
+        padding:0px;
+        background-color: #f9f9f9;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to right, #F1FEC6, #A882DD); /* Change colors as needed */
+    }
+    .about-content h1 {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .about-content p {
+        max-width: 800px;
+        margin: auto;
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: #333;
+    }
+    .contact-us {
+        margin-top: 40px;
+    }
+    .contact-us h2 {
+        font-size: 2em;
+        font-weight: bold;
+        color: #444;
+        margin-bottom: 10px;
+    }
+    .social-icons {
+        margin-top: 20px;
+    }
+    .social-icons a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #555;
+        font-size: 1.8em;
+        transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+        color: #007bff;
+    }
+    #about {
+   
+    padding: 20px;
+    color: rgb(0, 0, 0); 
+}
+</style>
+
+
+<button id="calculatorButton" title="Calculator">
+    <i class="fas fa-calculator"></i>
+</button>
+
+<button id="galleryButton" title="Gallery">
+    <i class="fas fa-image"></i>
+</button>
+
+<button id="scrollToTop">Top</button>
+
+<style>
+    #calculatorButton {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#calculatorButton:hover {
+    background-color: #218838;
+}
+
+#galleryButton {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#galleryButton:hover {
+    background-color: #0056b3;
+}
+
+    
+   
+    </style>
+<script>
+document.getElementById("galleryButton").addEventListener("click", function() {
+    window.location.href = "gallery.html"; 
+});
+document.getElementById("calculatorButton").addEventListener("click", function() {
+    window.location.href = "calc.html"; 
+});
+</script>
+<footer>
+    <p>© 2024 Travel Trekkers. All rights reserved. | <a href="#">Privacy Policy</a></p>
+</footer>
+
+<script>
+    document.getElementById('searchInput').addEventListener('input', function () {
+        let searchTerm = this.value.toLowerCase();
+        let cards = document.querySelectorAll('.card');
+        let noResultsMessage = document.getElementById('noResultsMessage');
+
+        let hasVisibleCards = false;
+        cards.forEach(function (card) {
+            let destinationName = card.querySelector('h2').textContent.toLowerCase();
+            let placeName = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
+
+            if (destinationName.includes(searchTerm) || placeName.includes(searchTerm)) {
+                card.style.display = 'block'; 
+                hasVisibleCards = true;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        
+        if (hasVisibleCards) {
+            noResultsMessage.style.display = 'none';
+        } else {
+            noResultsMessage.style.display = 'block'; 
+        }
+    });
+
+</script>
+
+<script>
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+   
+    const regions = document.querySelectorAll('.regions span');
+    const cardsGroups = document.querySelectorAll('.cards-group');
+    let activeRegion = null;
+
+    regions.forEach(region => {
+        region.addEventListener('click', function () {
+            const selectedRegion = this.getAttribute('data-region');
+            const activeGroup = document.getElementById(selectedRegion);
+
+           
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+                if (activeGroup) {
+                    activeGroup.classList.remove('active'); 
+                }
+            } else {
+                
+                regions.forEach(r => r.classList.remove('active'));
+
+                cardsGroups.forEach(group => group.classList.remove('active'));
+
+                
+                this.classList.add('active');
+                if (activeGroup) {
+                    activeGroup.classList.add('active');
+                }
+            }
+            searchInput.value = '';
+            filterCards('');
+        });
+    });
+
+    
+    const scrollToTopButton = document.getElementById('scrollToTop');
+
+    window.onscroll = function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopButton.style.display = "block";
+        } else {
+            scrollToTopButton.style.display = "none";
+        }
+    };
+
+    scrollToTopButton.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function () {
+        const filter = searchInput.value.toLowerCase();
+        filterCards(filter);
+    });
+
+   
+    function filterCards(filter) {
+        const activeGroup = document.querySelector('.cards-group.active');
+        if (activeGroup) {
+            const cards = activeGroup.querySelectorAll('.card');
+            cards.forEach(card => {
+                const title = card.querySelector('h2').innerText.toLowerCase();
+                const location = card.querySelector('p').innerText.toLowerCase();
+
+                
+                if (title.includes(filter) || location.includes(filter)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    }
+
+</script>
+
+</body>
+</html>

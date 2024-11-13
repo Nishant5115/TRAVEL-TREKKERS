@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Traveler's Gallery - From the Corners of the World</h1>
+    </header>
+
+    <section class="gallery">
+            <div class="gallery-item" onclick="openModal('review4')">
+                <img src="r4.jpeg" alt="Travel Photo 4">
+                <h3>Himachal Pradesh, India</h3>
+            </div>
+
+            <div class="gallery-item" onclick="openModal('review1')">
+                <img src="r1.jpg" alt="Travel Photo 1">
+                <h3>Paris, France</h3>
+            </div>
+            <div class="gallery-item" onclick="openModal('review6')">
+                <img src="r6.jpeg" alt="Travel Photo 6">
+                <h3>Kamrunag , India</h3>
+            </div>
+            <div class="gallery-item" onclick="openModal('review5')">
+                <img src="r5.jpeg" alt="Travel Photo 5">
+                <h3>Jakhu Temple, India</h3>
+            </div>
+            <div class="gallery-item" onclick="openModal('review3')">
+                <img src="r3.jpg" alt="Travel Photo 3">
+                <h3>New York, USA</h3>
+            </div>
+            <div class="gallery-item" onclick="openModal('review2')">
+                <img src="r2.jpg" alt="Travel Photo 2">
+                <h3>Tokyo, Japan</h3>
+            </div>
+            <div class="gallery-item" onclick="openModal('review7')">
+                <img src="r7.jpg" alt="Travel Photo 7">
+                <h3>Jaipur, India</h3>
+            </div>
+            
+            <div class="gallery-item" onclick="openModal('review8')">
+                <img src="r8.jpg" alt="Travel Photo 8">
+                <h3>Bangkok, Thailand</h3>
+            </div>
+            
+            <div class="gallery-item" onclick="openModal('review9')">
+                <img src="r9.jpg" alt="Travel Photo 9">
+                <h3>Dubai, UAE</h3>
+            </div>
+            
+            <div class="gallery-item" onclick="openModal('review10')">
+                <img src="r10.jpg" alt="Travel Photo 10">
+                <h3>Singapore</h3>
+            </div>
+            
+            <div class="gallery-item" onclick="openModal('review11')">
+                <img src="r11.jpg" alt="Travel Photo 11">
+                <h3>Seoul, South Korea</h3>
+            </div>
+            
+            <div class="gallery-item" onclick="openModal('review12')">
+                <img src="r12.jpg" alt="Travel Photo 12">
+                <h3>Hanoi, Vietnam</h3>
+            </div>
+           
+            
+        
+    </section>
+
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="review1" class="review">
+                <h2>Paris, France</h2>
+                <p>"The Eiffel Tower was breathtaking! Highly recommend visiting during sunset for an unforgettable experience."</p>
+                <p>★★★★★</p>
+                <p><strong>- Sarah, Traveler</strong></p>
+            </div>
+            <div id="review2" class="review">
+                <h2>Tokyo, Japan</h2>
+                <p>"Tokyo is a perfect blend of traditional and modern. The food is amazing, especially the sushi!"</p>
+                <p>★★★★★</p>
+                <p><strong>- John, Traveler</strong></p>
+            </div>
+            <div id="review3" class="review">
+                <h2>New York, USA</h2>
+                <p>"The energy of the city is unmatched! Loved walking through Central Park and exploring Times Square."</p>
+                <p>★★★★★</p>
+                <p><strong>- Emily, Traveler</strong></p>
+            </div>
+           
+            <div id="review5" class="review">
+                <h2>Jakhu Temple ,Himachal</h2>
+                <p>"Jakhu Temple in Shimla offers a serene and spiritual experience, with stunning panoramic views of the surrounding mountains and a peaceful atmosphere."</p>
+                <p>★★★★★</p>
+                <p><strong>-Harshita, Traveler</strong></p>
+            </div>
+            <div id="review4" class="review">
+                <h2>Hatu Peak, Shimla</h2>
+                <p>"Hatu Peak offers a scenic trek with breathtaking views of the surrounding valleys and snow-capped mountains."</p>
+                <p>★★★★★</p>
+                <p><strong>-Nishant, Traveler</strong></p>
+            </div>
+            <div id="review6" class="review">
+                <h2>Kamrunag, Himachal</h2>
+                <p>"Kamrunag is a hidden gem, with a tranquil lake surrounded by lush green landscapes, perfect for nature lovers."</p>
+                <p>★★★★★</p>
+                <p><strong>- Kirti, Traveler</strong></p>
+            </div>
+            <div id="review7" class="review">
+                <h2>Jaipur,India</h2>
+                <p>"The Pink City is a mesmerizing blend of rich history and vibrant culture. The Amber Fort and City Palace are must-sees!"</p>
+                <p>★★★★★</p>
+                <p><strong>- Manan, Traveler</strong></p>
+            </div>
+            
+            <div id="review8" class="review">
+                <h2>Bangkok, Thailand</h2>
+                <p>"The vibrant street markets and incredible street food are unforgettable! Can’t wait to go back."</p>
+                <p>★★★★★</p>
+                <p><strong>- Mark, Traveler</strong></p>
+            </div>
+            
+            <div id="review9" class="review">
+                <h2>Dubai, UAE</h2>
+                <p>"A futuristic city with stunning architecture and luxury. Don’t miss the Burj Khalifa for panoramic views!"</p>
+                <p>★★★★★</p>
+                <p><strong>- Lisa, Traveler</strong></p>
+            </div>
+            
+            <div id="review10" class="review">
+                <h2>Singapore</h2>
+                <p>"Singapore is a clean, modern city with amazing gardens and shopping. It’s a great place to explore on foot."</p>
+                <p>★★★★★</p>
+                <p><strong>- Tom, Traveler</strong></p>
+            </div>
+            
+            <div id="review11" class="review">
+                <h2>Seoul, South Korea</h2>
+                <p>"Seoul has a vibrant culture, great food, and a rich history. A must-visit for anyone interested in K-pop or history."</p>
+                <p>★★★★★</p>
+                <p><strong>- Mina, Traveler</strong></p>
+            </div>
+            
+            <div id="review12" class="review">
+                <h2>Hanoi, Vietnam</h2>
+                <p>"The street food in Hanoi is a culinary adventure. Don’t miss out on Pho and Banh Mi!"</p>
+                <p>★★★★★</p>
+                <p><strong>- Carlos, Traveler</strong></p>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
+<style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 20px 20px;
+    background: linear-gradient(45deg, #6caed7, #e791f7);
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out;
+}
+
+h1 {
+    font-size:30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap:50px;
+    padding: 40px;
+    justify-items: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+    height:320px;
+    width:280px;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 15px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gallery-item:hover h3 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeInModal 0.5s ease-out;
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 60%;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.review {
+    display: none;
+    animation: fadeInReview 0.3s ease-out;
+}
+
+@keyframes fadeInReview {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.review p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.review h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+.review1,
+.review2,
+.review3,
+.review4,
+.review5,
+.review6 {
+    display: none;
+}
+
+.review1 p, .review2 p, .review3 p, .review4 p, .review5 p, .review6 p {
+    color: #555;
+    font-style: italic;
+}
+</style>
+<script>
+    function openModal(reviewId) {
+      
+        var reviews = document.querySelectorAll('.review');
+        reviews.forEach(function(review) {
+            review.style.display = 'none';
+        });
+    
+        
+        var selectedReview = document.getElementById(reviewId);
+        if (selectedReview) {
+            selectedReview.style.display = 'block';
+        }
+    
+       
+        document.getElementById('reviewModal').style.display = 'block';
+    }
+    
+    function closeModal() {
+        document.getElementById('reviewModal').style.display = 'none';
+        var reviews = document.querySelectorAll('.review');
+        reviews.forEach(function(review) {
+            review.style.display = 'none';
+        });
+    }
+    </script>
+    
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<button id="addReviewBtn" onclick="openReviewForm()">
+    <i class="fas fa-plus"></i>
+</button>
+
+
+    
+
+<div id="reviewForm" class="review-form">
+    <span class="close-form" onclick="closeReviewForm()">×</span>
+    
+    <h2>Share Your Travel Experience</h2>
+    <form id="reviewFormContent">
+        <label for="photoUpload">Upload Photo:</label>
+        <input type="file" id="photoUpload" name="photo" accept="image/*" required><br><br>
+        
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" name="destination" placeholder="Where did you go?" required><br><br>
+        
+        <label for="reviewText">Your Review:</label><br>
+        <textarea id="reviewText" name="reviewText" rows="4" cols="50" placeholder="Write your review..." required></textarea><br><br>
+        
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required><br><br>
+        
+        <button type="submit">Submit Review</button>
+        <button type="button" onclick="closeReviewForm()">Cancel</button>
+    </form>
+</div>
+
+
+
+<style>
+    .close-form {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-form:hover {
+    color: red;
+}
+
+  
+#addReviewBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 20px; 
+    background-color: #6caed7;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addReviewBtn:hover {
+    background-color: #e791f7;
+}
+
+#addReviewBtn i { 
+    font-size: 24px;
+}
+
+
+.review-form {
+    display: none;
+    position: fixed;
+    top: 10%; 
+    left: 50%;
+    transform: translate(-50%, -10%);
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 90%; 
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto; 
+}
+
+body.modal-open {
+    backdrop-filter: blur(50px);
+    overflow: hidden;
+}
+
+.review-form input, .review-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.review-form button {
+    padding: 12px 25px; 
+    background-color: #6caed7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   
+   
+}
+
+.review-form button[type="button"] {
+    background-color: #ccc;
+}
+
+.review-form button:hover {
+    background-color: #e791f7;
+}
+
+.review-form button[type="button"]:hover {
+    background-color: #aaa;
+}
+
+    </style>
+    <script>
+        
+        function openReviewForm() {
+            document.getElementById('reviewForm').style.display = 'block';
+        }
+        
+        
+        function closeReviewForm() {
+            document.getElementById('reviewForm').style.display = 'none';
+        }
+        document.getElementById('reviewFormContent').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const destination = document.getElementById('destination').value;
+    const reviewText = document.getElementById('reviewText').value;
+    const rating = document.getElementById('rating').value;
+    const photo = document.getElementById('photoUpload').files[0];
+
+    if (photo && destination && reviewText && rating) {
+
+        const newItem = document.createElement('div');
+        newItem.classList.add('gallery-item');
+        const reviewId = 'review' + Date.now();
+        newItem.dataset.id = reviewId;
+
+        newItem.onclick = function() {
+            openModal(reviewId);
+        };
+
+       
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(photo);
+        img.alt = `Travel Photo ${Date.now()}`;
+        
+     
+        const title = document.createElement('h3');
+        title.textContent = destination;
+    
+        newItem.appendChild(img);
+        newItem.appendChild(title);
+        document.querySelector('.gallery').appendChild(newItem);
+
+        const reviewContent = document.createElement('div');
+        reviewContent.classList.add('review');
+        reviewContent.id = reviewId;
+        
+        const h2 = document.createElement('h2');
+        h2.textContent = destination;
+        const pReview = document.createElement('p');
+        pReview.textContent = `"${reviewText}"`;
+        const pRating = document.createElement('p');
+        pRating.textContent = `Rating: ${'★'.repeat(rating)}`;
+
+        const pAuthor = document.createElement('p');
+        pAuthor.innerHTML = `<strong>- You, Traveler</strong>`;
+
+        reviewContent.appendChild(h2);
+        reviewContent.appendChild(pReview);
+        reviewContent.appendChild(pRating);
+        reviewContent.appendChild(pAuthor);
+
+        document.querySelector('.modal-content').appendChild(reviewContent);
+    
+        closeReviewForm();
+    } else {
+        alert('Please fill out all fields and upload a photo!');
+    }
+});
+
+        </script>

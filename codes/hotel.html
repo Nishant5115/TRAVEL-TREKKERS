@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay - Travel Website</title>
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #5797dc;
+            color: white;
+        }
+
+        .search-bar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        .cards-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 15px;
+        }
+
+       
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 300px;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info h2 {
+            font-size: 20px;
+            color: #007bff;
+            margin: 10px 0;
+        }
+
+        .info p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .info .details {
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .star-rating {
+            font-size: 18px;
+            color: #f5a623;
+        }
+
+        .info button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .info button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .modal-content h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .modal-content label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .modal-content button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+    
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .cards-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-bar {
+                width: 200px;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+
+ 
+        .back-to-home {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Stay Options for Your Travel</h1>
+        <p>Explore and book the best accommodations for your trip!</p>
+    </header>
+
+    <input type="text" id="searchBar" class="search-bar" placeholder="Search accommodation..." onkeyup="searchAccommodation()">
+
+
+        <div class="cards-group" id="stay-group">
+            <div class="card" data-name="Taj" data-description="The Taj Mahal Palace is a heritage, five-star, luxury hotel in the Colaba area of Mumbai, Maharashtra, India, situated next to the Gateway of India.">
+                <img src="taj.jpg" alt="taj">
+                <div class="info">
+                    <h2>Taj Palace</h2>
+                    <p>A heritage, five-star, luxury hotel in Mumbai, Maharashtra, India, situated next to the Gateway of India.</p>
+                    <p class="details">5 Stars | $220 per night</p>
+                    <p>📍Mumbai</p>
+                    <div class="star-rating">★★★★★</div>
+                    <button onclick="bookNow('The Oberoi', 220)">Book Now</button>
+                </div>
+            </div>
+            
+        <div class="card" data-name="The Leela Palace" data-description="A perfect blend of tradition and modernity at The Leela Palace.">
+        <img src="leels.jpg" alt="The Leela Palace">
+        <div class="info">
+            <h2>The Leela Palace</h2>
+            <p>A perfect blend of tradition and modernity at The Leela Palace.</p>
+            <p>📍Delhi</p>
+            <p class="details">5 Stars | $350 per night</p>
+            <div class="star-rating">★★★★★</div>
+            <button onclick="bookNow('The Leela Palace', 250)">Book Now</button>
+        </div>
+    </div>
+    
+    <div class="card" data-name="ITC Maurya" data-description="Stay in style with world-class service at ITC Maurya.">
+        <img src="hot.jpg" alt="ITC Maurya">
+        <div class="info">
+            <h2>ITC Maurya</h2>
+            <p>Stay in style with world-class service at ITC Maurya.</p>
+            <p>📍Delhi</p>
+            <p class="details">5 Stars | $180 per night</p>
+            <div class="star-rating">★★★★★</div>
+            <button onclick="bookNow('ITC Maurya', 180)">Book Now</button>
+        </div>
+    </div>
+    
+    
+    <div class="card" data-name="The Oberoi" data-description="Stay at The Oberoi in Mumbai for a luxurious experience.">
+        <img src="newho.jpg" alt="The Oberoi">
+        <div class="info">
+            <h2>The Oberoi</h2>
+            <p>Stay at The Oberoi in Mumbai for a luxurious experience.</p>
+            <p class="details">5 Stars | $220 per night</p>
+            <p>📍Mumbai</p>
+            <div class="star-rating">★★★★★</div>
+            <button onclick="bookNow('The Oberoi', 220)">Book Now</button>
+        </div>
+    </div>
+    
+    <div class="card" data-name="Trident" data-description="Trident Mumbai offers an unforgettable stay with stunning views.">
+        <img src="chd.jpg" alt="Trident">
+        <div class="info">
+            <h2>Trident</h2>
+            <p>Trident Mumbai offers an unforgettable stay with stunning views.</p>
+            <p>📍Mumbai</p>
+            <p class="details">5 Stars | $210 per night</p>
+            <div class="star-rating">★★★★★</div>
+            <button onclick="bookNow('Trident', 210)">Book Now</button>
+        </div>
+    </div>
+    
+    <div class="card" data-name="Trident" data-description="Trident Mumbai offers an unforgettable stay with stunning views.">
+        <img src="shan.jpg" alt="j">
+        <div class="info">
+            <h2>Luxe Lagoon</h2>
+            <p>Stay in style with world-class service at Luxe Lagoon.</p>
+            <p>📍Mumbai</p>
+            <p class="details">5 Stars | $300 per night</p>
+            <div class="star-rating">★★★★★</div>
+            <button onclick="bookNow('Trident', 210)">Book Now</button>
+        </div>
+    </div>
+    
+    </div>
+
+    <!-- Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirm Your Booking</h3>
+            <p id="hotel-name"></p>
+            
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" required>
+            
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" required>
+    
+            <label for="people">Number of People:</label>
+            <select id="people" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+    
+            <p id="price-details"></p>
+    
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" required>
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+    
+            <button onclick="submitBooking()">Confirm Booking</button>
+        </div>
+    </div>
+    
+    </div>
+
+    <button onclick="window.location.href='frontpage.html'" class="back-to-home">Back to Home</button>
+
+</body>
+</html>
+<script>  let selectedPrice;
+
+    function bookNow(hotelName, price) {
+       
+        document.getElementById('checkin').value = '';
+        document.getElementById('checkout').value = '';
+        document.getElementById('people').value = '1';
+        document.getElementById('price-details').textContent = '';
+        document.getElementById('payment-method').value = 'credit-card';
+        
+        
+        selectedPrice = price;
+        document.getElementById('hotel-name').textContent = `Booking: ${hotelName} - $${price} per night`;
+        document.getElementById('paymentModal').style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById('paymentModal').style.display = "none";
+    }
+
+    function submitBooking() {
+        const checkinDate = document.getElementById('checkin').value;
+        const checkoutDate = document.getElementById('checkout').value;
+        const numberOfPeople = document.getElementById('people').value;
+
+        if (!checkinDate || !checkoutDate) {
+            alert("Please select both check-in and check-out dates.");
+            return;
+        }
+
+        const days = Math.floor((new Date(checkoutDate) - new Date(checkinDate)) / (1000 * 3600 * 24));
+        const totalCost = selectedPrice * days * numberOfPeople;
+        const paymentMethod = document.getElementById('payment-method').value;
+
+        document.getElementById('price-details').textContent = `Total: $${totalCost} (${days} nights, ${numberOfPeople} people)`;
+        
+        alert(`Booking confirmed! Total cost: $${totalCost}. Payment Method: ${paymentMethod}`);
+        closeModal();
+    }
+
+    function searchAccommodation() {
+const searchValue = document.getElementById('searchBar').value.toLowerCase();
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+    const name = card.getAttribute('data-name').toLowerCase();
+    const description = card.getAttribute('data-description').toLowerCase();
+    const location = card.querySelector('p:nth-of-type(2)').textContent.toLowerCase(); 
+
+   
+    if (name.includes(searchValue) || description.includes(searchValue) || location.includes(searchValue)) {
+        card.style.display = 'block'; 
+    } else {
+        card.style.display = 'none';
+    }
+});
+}
+</script>
+</script>

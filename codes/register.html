@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm(event) {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const feedback = document.getElementById("feedback");
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            feedback.innerHTML = ""; 
+
+            // Email validation
+            if (!emailPattern.test(email)) {
+                feedback.innerHTML += "<p style='color: red;'>Please enter a valid email.</p>";
+                event.preventDefault();
+                return; 
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                feedback.innerHTML += "<p style='color: red;'>Password must be at least 6 characters long.</p>";
+                event.preventDefault(); 
+                return;
+            }
+
+            // Save user data to localStorage
+            localStorage.setItem("registeredEmail", email);
+            localStorage.setItem("registeredPassword", password);
+
+            showSuccessPopup();
+        }
+
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("password");
+            const toggleButton = document.getElementById("togglePassword");
+            const isPasswordVisible = passwordInput.type === "text";
+
+            passwordInput.type = isPasswordVisible ? "password" : "text";
+            toggleButton.innerText = isPasswordVisible ? "Show Password" : "Hide Password";
+        }
+
+        function showSuccessPopup() {
+            const popup = document.getElementById("popup");
+            popup.style.display = "block";
+
+            // Redirect to front page after 3 seconds
+            setTimeout(function() {
+                window.location.href = "http://127.0.0.1:5501/frontpage.html";
+            }, 3000);
+        }
+    </script>
+</head>
+<body>
+    <div class="register-container">
+        <div class="register-form">
+            <h2>Register</h2>
+            <form action="register.php" method="POST" onsubmit="validateForm(event)">
+                <div class="input-group">
+                    <label for="email">Email/Mobile No.</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" id="togglePassword" onclick="togglePasswordVisibility()">Show Password</button>
+                </div>
+                <div id="feedback"></div>
+                <button type="submit">Sign up</button>
+                <p>Already have an account? <a href="login.html">Login Here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <p>Registered successfully! Redirecting to home...</p>
+    </div>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('register.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-form {
+            background-color: #e0f7fa;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #000;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        #togglePassword {
+            background: none;
+            color: #00796b;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .popup p {
+            font-size: 16px;
+            color: #000;
+        }
+    </style>
+</body>
+</html>

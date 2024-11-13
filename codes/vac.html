@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay - Vacation Rentals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            position: relative;}
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #5797dc;
+            color: white;
+        }
+
+       
+        .search-bar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        .cards-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 300px;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info h2 {
+            font-size: 20px;
+            color: #007bff;
+            margin: 10px 0;
+        }
+
+        .info p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+        .info .details {
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .star-rating {
+            font-size: 18px;
+            color: #f5a623;
+        }
+
+        .info button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .info button:hover {
+            background-color: #0056b3;
+        }
+
+       
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="date"], select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="date"]:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+#price-details {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #007bff;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:nth-child(2) {
+    background-color: #f44336;
+}
+
+button:nth-child(2):hover {
+    background-color: #e53935;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    h3 {
+        font-size: 20px;
+    }
+
+    label, input[type="date"], select {
+        font-size: 14px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Vacation Rental Stays</h1>
+        <p>Explore and book unique vacation rentals for a memorable experience!</p>
+    </header>
+
+    <input type="text" id="searchBar" class="search-bar" placeholder="Search vacation rental..." onkeyup="searchAccommodation()">
+
+    <div class="cards-group" id="stay-group">
+        <div class="card" data-name="Mountain Escape" data-city="Aspen" data-description="A cozy cabin in the mountains with breathtaking views.">
+            <img src="Aspen.jpg" alt="Mountain Escape">
+            <div class="info">
+                <h2>Mountain Escape</h2>
+                <p>A cozy cabin in the mountains with breathtaking views.</p>
+                <p class="details">4 Stars | $150 per night</p>
+                <p>📍Aspen</p>
+                <div class="star-rating">★★★★</div>
+                <button onclick="bookNow('Mountain Escape', 150)">Book Now</button>
+            </div>
+        </div>
+        
+        <div class="card" data-name="Beachfront Villa" data-city="Malibu" data-description="Luxury beachfront villa with private pool and beach access.">
+            <img src="beachfront villa.jpg" alt="Beachfront Villa">
+            <div class="info">
+                <h2>Beachfront Villa</h2>
+                <p>Luxury beachfront villa with private pool and beach access.</p>
+                <p>📍Malibu</p>
+                <p class="details">5 Stars | $500 per night</p>
+                <div class="star-rating">★★★★★</div>
+                <button onclick="bookNow('Beachfront Villa', 500)">Book Now</button>
+            </div>
+        </div>
+    
+        <div class="card" data-name="Urban Loft" data-city="New York" data-description="Stylish urban loft in the heart of the city.">
+            <img src="urban loft.jpg" alt="Urban Loft">
+            <div class="info">
+                <h2>Urban Loft</h2>
+                <p>Stylish urban loft in the heart of the city.</p>
+                <p>📍New York</p>
+                <p class="details">4 Stars | $300 per night</p>
+                <div class="star-rating">★★★★</div>
+                <button onclick="bookNow('Urban Loft', 300)">Book Now</button>
+            </div>
+        </div>
+        
+        <div class="card" data-name="Lakeside Cottage" data-city="Lake Tahoe" data-description="Charming lakeside cottage with peaceful surroundings.">
+            <img src="lakeside cottage.jpg" alt="Lakeside Cottage">
+            <div class="info">
+                <h2>Lakeside Cottage</h2>
+                <p>Charming lakeside cottage with peaceful surroundings.</p>
+                <p>📍Lake Tahoe</p>
+                <p class="details">4 Stars | $200 per night</p>
+                <div class="star-rating">★★★★</div>
+     <button onclick="bookNow('Lakeside Cottage', 200)">Book Now</button>
+            </div>
+        </div>
+    </div>
+        
+        
+
+    </div>
+
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <h3>Confirm Your Booking</h3>
+            <p id="hostel-name"></p>
+            
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" required>
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" required>
+
+            <label for="people">Number of People:</label>
+            <select id="people" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <p id="price-details"></p>
+
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" required>
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <button onclick="submitBooking()">Submit</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+    <a href="frontpage.html" class="back-home">Back to Home</a>
+
+    <script>
+        function bookNow(rentalName, pricePerNight) {
+            document.getElementById('paymentModal').style.display = 'flex';
+            document.getElementById('rental-name').textContent = `Rental: ${rentalName}`;
+            document.getElementById('price-details').textContent = `Price: $${pricePerNight} per night`;
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+
+        function submitBooking() {
+            alert("Booking submitted successfully!");
+            closeModal();
+        }
+
+        function searchAccommodation() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const cards = document.getElementsByClassName('card');
+            
+            Array.from(cards).forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const city = card.getAttribute('data-city').toLowerCase();
+                const description = card.getAttribute('data-description').toLowerCase();
+                
+                if (name.includes(input) || description.includes(input) || city.includes(input)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
